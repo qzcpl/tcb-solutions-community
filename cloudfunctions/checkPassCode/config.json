@@ -1,0 +1,8 @@
+{
+  "redis": {
+    "host": "",
+    "password": "",
+    "adminTokenKey": "",
+    "visitCodePriKey:": ""
+  }
+}

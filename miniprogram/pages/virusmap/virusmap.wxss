@@ -1,0 +1,60 @@
+/* pages/virusmap/virusmap.wxss */
+
+.t-border {
+  border: 1px red solid;
+}
+
+.page {
+  background: #fff;
+}
+
+/* banner */
+
+.banner {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.banner>image {
+  display: block;
+  width: 100%;
+}
+/* banner end */
+
+/* map */
+.search {
+  width: 90%;
+  height: 68rpx;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 25rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.map {
+  width: 100%;
+  border-radius: 50rpx;
+  margin-top: -50rpx;
+  overflow: hidden;
+}
+
+.search>icon {
+  height: 68rpx;
+  line-height: 68rpx;
+  vertical-align: middle;
+  margin-top: 10rpx;
+  margin-left: 30rpx;
+}
+
+.search>input:nth-of-type(1) {
+  height: 68rpx;
+  line-height: 68rpx;
+  font-size: 28rpx;
+  margin-left: 15rpx;
+}
+
+/* map end */

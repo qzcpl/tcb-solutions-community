@@ -1,0 +1,42 @@
+<view class="container replenish-container">
+	<!-- 焦点图 -->
+  <view class="banner">
+    <view>
+      <swiper indicator-dots="true" indicator-color='rgba(255, 255, 255, .3)' indicator-active-color='#fff' autoplay="true" interval="30000" >
+        <swiper-item>
+          <image mode="widthFix" src="../../common/image/banner.png"></image>
+        </swiper-item>
+        <swiper-item>
+          <image mode="widthFix" src="../../common/image/banner.png"></image>
+        </swiper-item>
+        <swiper-item>
+          <image mode="widthFix" src="../../common/image/banner.png"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+  <!-- 跳转集合 -->
+  <view class="skipUl">
+    <navigator hover-class="opacity5" url="/pages/situationsupplement/situationsupplement">
+			<image mode="widthFix"  src="/common/image/icon-new.svg"></image>
+      <view>
+        <text>疫情补充</text>
+        <text>描述描述</text>
+      </view>
+    </navigator>
+    <navigator hover-class="opacity5" url="/pages/communityreport/communityreport">
+			<image mode="widthFix" src="/common/image/icon-report.svg"></image>
+      <view>
+        <text>小区上报</text>
+        <text>描述描述</text>
+      </view>
+    </navigator>
+    <navigator hover-class="opacity5" url="/pages/reportrecord/reportrecord">
+			<image mode="widthFix" src="/common/image/icon-check.svg"></image>
+      <view>
+        <text>提交查看</text>
+        <text>描述描述</text>
+      </view>
+    </navigator>
+  </view>
+</view>
