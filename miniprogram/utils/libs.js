@@ -15,8 +15,9 @@ Page = function (app) {
       oldOnLoad && oldOnLoad.call(this, options); //apply
     }
   }
-  app.onShow = function () { 
-    // console.log("扩展onShow");
+  app.onShow = function () {
+    this.getUserInfo();
+    this.getOpenID();
     if (typeof app.onShow === 'function') {
       oldOnShow && oldOnShow.call(this);
     }
@@ -73,6 +74,24 @@ Page = function (app) {
   /**
   * 跳转到其他小程序
   */
+ app.getOpenID=async function(){
+  if (this.openid) {
+    return this.openid
+  }
+
+  const { result } = await wx.cloud.callFunction({
+    name: 'getUser'
+  })
+  if(result.user.data.length>0){
+    this.setData({
+      user:result.user.data[0]
+    })
+  }
+  this.setData({
+    openid:result.openid
+  })
+  return result.openid
+ }
   app.getUserInfo = function (e) {
     const that = this;
     if(e){

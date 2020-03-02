@@ -14,41 +14,22 @@ exports.main = async (event, context) => {
     var nowDate = new Date();
     var data = {
       name: event.name,
-      nick_name: event.nickName,
-      mobile: event.mobile,
-      city: event.city,
-      province: event.province,
-      country: event.country,
-      update_time: nowDate
+      address: event.address,
+      phone: event.phone,
+      sex: event.sex,
+      idcard: event.idcard,
+      region: event.region,
+      community: event.community
     };
-
-    if (event.address != null) {
-      data.address = event.address;
-    };
-    if (event.age != null) {
-      data.age = event.age;
-    };
-    if (event.certificateType != null) {
-      data.certificate_type = event.certificateType;
-    };
-    if (event.certificateNumber != null) {
-      data.certificate_number = event.certificateNumber;
-    };
-    if (event.place != null) {
-      data.place = event.place;
-    };
-    if (event.areaId != null) {
-      data.area_id = event.areaId;
-    };
-
     var result = await db.collection('tcbst_user').where({
       openid: wxContext.OPENID
     }).update({
       data: data
     });
-
+    
     return {
       error: null,
+      msg:"ok",
       requestId: event.requestId,
       updateTime: nowDate,
       timestamp: Math.round(new Date().getTime() / 1000)
@@ -56,6 +37,6 @@ exports.main = async (event, context) => {
 
   }catch(error){
     console.log(error);
-    return { error: error };
+    return { error: JSON.stringify(error),msg:"发生错误" };
   };
 }

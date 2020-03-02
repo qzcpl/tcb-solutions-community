@@ -42,6 +42,7 @@ exports.main = async (event, context) => {
         requestId: event.requestId,
         newUser: false,
         update_time: nowDate,
+        openid:wxContext.OPENID,
         timestamp: Math.round(new Date().getTime() / 1000)
       };
 
@@ -68,6 +69,7 @@ exports.main = async (event, context) => {
         requestId: event.requestId,
         newUser: true,
         update_time: nowDate,
+        openid:wxContext.OPENID,
         timestamp: Math.round(new Date().getTime() / 1000)
       };
        
@@ -75,6 +77,6 @@ exports.main = async (event, context) => {
 
   }catch(error){
     console.log(error);
-    return { error: error };
+    return { error: error,openid:wxContext.OPENID };
   };
 }

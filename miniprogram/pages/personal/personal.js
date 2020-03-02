@@ -13,7 +13,6 @@ Page({
   onLoad: function (options) {
     const that = this;
     that.getUserInfo();
-    console.log(that.data.userInfo)
   },
 
   /**

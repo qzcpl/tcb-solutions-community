@@ -1,71 +1,69 @@
 <view class="item">
-  <image class="avatar"></image>
+  <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
   <view class="content">
     <view class="title">
-      未授权
+      {{userInfo.nickName}}
     </view>
-    <view class="more">
+    <view class="more" wx:if="{{!isQrCodeStauts}}">
       点击获取授权
     </view>
   </view>
-  <view class="action iconfont icon-right"></view>
 </view>
 
 <view class="line"></view>
 
 <view class="from">
   <view class="title">
-    昵称：
+    姓名：
   </view>
-  <input placeholder="详细信息"></input>
-  <view class="iconfont icon-right"></view>
-</view>
-<view class="from">
-  <view class="title">
-    收获地址：
-  </view>
-  <input placeholder="详细信息"></input>
-  <view class="iconfont icon-right"></view>
-</view>
-<view class="from">
-  <view class="title">
-    手机号：
-  </view>
-  <input placeholder="详细信息"></input>
-  <view class="iconfont icon-right"></view>
-</view>
-<view class="from">
-  <view class="title">
-    性别：
-  </view>
-  <input placeholder="详细信息"></input>
-  <view class="iconfont icon-right"></view>
-</view>
-<view class="from">
-  <view class="title">
-    生日：
-  </view>
-  <input placeholder=""></input>
-  <view class="iconfont icon-right"></view>
+  <input placeholder="请输入姓名" value="{{user.name}}" id="name" bindchange="inputChange"></input>
 </view>
 <view class="from">
   <view class="title">
     地区：
   </view>
-  <input placeholder=""></input>
-  <view class="iconfont icon-right"></view>
-</view>
-<view class="from">
-  <view class="title">
-    通行二维码：
-  </view>
-  <input placeholder=""></input>
-  <view class="iconfont icon-right"></view>
+  <input placeholder="省份地市区县" value="{{user.region}}"  value="{{user.region}}" id="region"  bindchange="inputChange"></input>
 </view>
 <view class="from">
   <view class="title">
     所在小区：
   </view>
-  <input placeholder="详细信息"></input>
+  <input placeholder="请填写所在小区"  value="{{user.community}}" id="community"  bindchange="inputChange"></input>
+</view>
+<view class="from">
+  <view class="title">
+    地址：
+  </view>
+  <input placeholder="请输入地址" value="{{user.address}}" id="address"  bindchange="inputChange"></input>
+</view>
+<view class="from">
+  <view class="title">
+    手机号：
+  </view>
+  <input placeholder="请输入手机号"  value="{{user.phone}}" id="phone"  bindchange="inputChange"></input>
+</view>
+<view class="from">
+  <view class="title">
+    性别：
+  </view>
+  <picker bindchange="genderChange" value="{{index}}" id="sex" range="{{gender}}">
+    <view class="picker">
+      {{gender[index]}}
+    </view>
+  </picker>
+</view>
+<view class="from">
+  <view class="title">
+    身份证：
+  </view>
+  <input placeholder="请填写证件号码"  value="{{user.idcard}}" id="idcard"  bindchange="inputChange"></input>
+</view>
+<view class="from" bindtap="GoToQrcode">
+  <view class="title">
+    通行二维码：
+  </view>
+  <input placeholder="点击查看"></input>
   <view class="iconfont icon-right"></view>
 </view>
+
+<button bindtap="save_personaldetails" class="fixed btn-back flex-none button button-primary">保存并返回</button>

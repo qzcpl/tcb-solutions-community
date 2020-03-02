@@ -9,8 +9,9 @@ Page({
   data: {
     symptoms: [
       {
-        title: '寒战',
-        desc: '发冷'
+        id: 0,
+        title: '正常',
+        desc: '一切正常'
       },
       {
         id: 1,
@@ -24,24 +25,19 @@ Page({
       },
       {
         id: 3,
-        title: '咳痰',
-        desc: '气管不适'
+        title: '畏寒',
+        desc: '惧怕寒风'
       },
       {
         id: 4,
-        title: '发烧',
-        desc: '37度以上高温'
+        title: '低烧',
+        desc: '36度以下高温'
       },
       {
         id: 5,
-        title: '咳痰',
-        desc: '气管不适'
-      },
-      {
-        id: 6,
-        title: '发烧',
-        desc: '37度以上高温'
-      },
+        title: '咽痛',
+        desc: '喉咙发炎'
+      }
     ],
     array: [],
     index: 20,
@@ -60,7 +56,7 @@ Page({
     })
   },
   checkIn() {
-    const { array, index, date,des,item } = this.data;
+    const { array, index, date,des,item,status } = this.data;
     const showdata={
       temp:array[index],
       des: des,
@@ -79,7 +75,7 @@ Page({
         wx.hideLoading();
         if(res.result.code==0){
           wx.redirectTo({
-            url: `/pages/punchcardstatus/punchcardstatus?temp=${array[index]}&date=${date}&item=${item.length}`,
+            url: `/pages/punchcardstatus/punchcardstatus?temp=${array[index]}&date=${date}&item=${item.toString()}`,
           })
         }
         else if(res.result.code==1){

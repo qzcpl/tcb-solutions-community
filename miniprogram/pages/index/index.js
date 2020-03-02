@@ -12,8 +12,19 @@ Page({
    */
   onLoad: function (options) {
     this.getLocation();
+    this.login();
   },
+  login: async function() {
+    if (this.openid) {
+      return this.openid
+    }
 
+    const { result } = await wx.cloud.callFunction({
+      name: 'login'
+    })
+
+    return result.openid
+  },
   /**
    * 获取位置
    */
